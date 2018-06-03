@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ESM Mapped Modules Resolution</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  </head>
+  <body></body>
+  <script>
+  (function (L, M, A, O) {
+    if (A in M) M[A].register('/sw.js')
+      .then(function () {
+        (M = L.createElement('script')).type = 'module';
+        L.head.appendChild(M).src = '/js/esm.js';
+      })
+      .catch(O);
+    else O();
+  }(
+    document,
+    navigator,
+    'serviceWorker',
+    function () {
+      document.write('<script src="/js/bundle.js"><'+'/script>');
+    }
+  ));
+  </script>
+</html>
