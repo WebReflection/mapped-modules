@@ -38,7 +38,9 @@ The only script, at the end of the page, that is needed to run `/js/esm.js` as e
   navigator,
   'serviceWorker',
   function () {
-    document.write('<script src="/js/bundle.js"><'+'/script>');
+    document.head.appendChild(
+      document.createElement('script')
+    ).src = '/js/bundle.js';
   }
 ));
 ```
