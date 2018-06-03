@@ -9,8 +9,10 @@
   (function (L, M, A, O) {
     if (A in M) M[A].register('sw.js')
       .then(function () {
-        (M = L.createElement('script')).type = 'module';
-        L.head.appendChild(M).src = 'js/esm.js';
+        M[A].ready.then(function () {
+          (M = L.createElement('script')).type = 'module';
+          L.head.appendChild(M).src = 'js/esm.js';
+        })
       })
       .catch(O);
     else O();

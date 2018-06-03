@@ -28,8 +28,10 @@ The only script, at the end of the page, that is needed to run `/js/esm.js` as e
 (function (L, M, A, O) {
   if (A in M) M[A].register('sw.js')
     .then(function () {
-      (M = L.createElement('script')).type = 'module';
-      L.head.appendChild(M).src = 'js/esm.js';
+      M[A].ready.then(function () {
+        (M = L.createElement('script')).type = 'module';
+        L.head.appendChild(M).src = 'js/esm.js';
+      })
     })
     .catch(O);
   else O();

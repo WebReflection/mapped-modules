@@ -21,8 +21,8 @@ addEventListener('fetch', event => {
           .then(b => b.text())
           .then(body => new Response(body, {
             headers: {'Content-Type': 'application/javascript'}
-          })))
-      )).then(response => response.clone())
+          })))))
+      .then(response => response.clone())
     );
   } else {
       event.respondWith(
