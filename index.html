@@ -7,10 +7,10 @@
   <body></body>
   <script>
   (function (L, M, A, O) {
-    if (A in M) M[A].register('/sw.js')
+    if (A in M) M[A].register('sw.js')
       .then(function () {
         (M = L.createElement('script')).type = 'module';
-        L.head.appendChild(M).src = '/js/esm.js';
+        L.head.appendChild(M).src = 'js/esm.js';
       })
       .catch(O);
     else O();
@@ -19,7 +19,9 @@
     navigator,
     'serviceWorker',
     function () {
-      document.write('<script src="/js/bundle.js"><'+'/script>');
+      document.head.appendChild(
+        document.createElement('script')
+      ).src = 'js/bundle.js';
     }
   ));
   </script>

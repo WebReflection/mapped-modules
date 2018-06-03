@@ -26,10 +26,10 @@ The only script, at the end of the page, that is needed to run `/js/esm.js` as e
 
 ```js
 (function (L, M, A, O) {
-  if (A in M) M[A].register('/sw.js')
+  if (A in M) M[A].register('sw.js')
     .then(function () {
       (M = L.createElement('script')).type = 'module';
-      L.head.appendChild(M).src = '/js/esm.js';
+      L.head.appendChild(M).src = 'js/esm.js';
     })
     .catch(O);
   else O();
@@ -40,7 +40,7 @@ The only script, at the end of the page, that is needed to run `/js/esm.js` as e
   function () {
     document.head.appendChild(
       document.createElement('script')
-    ).src = '/js/bundle.js';
+    ).src = 'js/bundle.js';
   }
 ));
 ```

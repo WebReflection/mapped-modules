@@ -1,5 +1,5 @@
 const SERVER = location.protocol + '//' + location.host;
-const MODULES_MAP = '/modules.json';
+const MODULES_MAP = 'modules.json';
 
 const openCache = caches.open(SERVER);
 
