@@ -13,7 +13,7 @@ addEventListener('install', event => {
 const responses = {};
 addEventListener('fetch', event => {
   const request = event.request;
-  if (/^\/:([^?]+)/.test(request.url.slice(SERVER.length))) {
+  if (/^\/[:@!~]([^?]+)/.test(request.url.slice(SERVER.length))) {
     const name = RegExp.$1;
     event.respondWith(
       (responses[name] ||
