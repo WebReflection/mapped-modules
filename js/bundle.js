@@ -1,1 +1,1 @@
-document.body.textContent = 'bundled';
+document.body.textContent = 'bundle';

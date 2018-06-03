@@ -1,3 +1,3 @@
 export function esm() {
-  document.body.textContent = 'esm';
+  document.body.textContent = 'hello esm';
 }
