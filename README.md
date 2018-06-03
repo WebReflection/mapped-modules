@@ -2,7 +2,7 @@
 
 This folder showcases ESM through modules as mapped names.
 
-The **modukes.json** file exports names usable as ESM imports.
+The **modules.json** file exports names usable as ESM imports.
 ```js
 {
   "module": "/js/hello-world.js"
