@@ -3,7 +3,7 @@ const MODULES_MAP = 'modules.json';
 
 const openCache = caches.open(SERVER);
 
-let modules = fetch(MODULES_MAP).then(b => b.json());
+let modules;
 addEventListener('install', event => {
   event.waitUntil(openCache.then(cache => cache.addAll([
     MODULES_MAP
@@ -14,6 +14,7 @@ const responses = {};
 addEventListener('fetch', event => {
   const request = event.request;
   if (/^\/[:@!~]([^?]+)/.test(request.url.slice(SERVER.length))) {
+    if (!modules) modules = fetch(MODULES_MAP).then(b => b.json());
     const name = RegExp.$1;
     event.respondWith(
       (responses[name] ||
